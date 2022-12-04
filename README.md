@@ -1,1 +1,1 @@
-# BlazorBootswatchSync
+### BlazorBootswatchSync
