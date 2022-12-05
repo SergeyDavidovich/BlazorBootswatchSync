@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>BlazorBootswatchSync</title>
     <base href="/" />
-    <link href="css/bootstrap/bootstrap-slate.min.css" rel="stylesheet" />
+    <link id="bootstrap" href="css/bootstrap/bootstrap-cerulean.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link href="BlazorBootswatchSync.styles.css" rel="stylesheet" />
+
     <link href="manifest.json" rel="manifest" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
@@ -31,6 +32,16 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script>
+        function SetDarkModeTheme(isDark) {
+            //document.getElementsByTagName('body')[0].style.display = 'none';
+
+            let bootstrap = document.getElementById('bootstrap');
+            bootstrap.href = isDark ? 'css/bootstrap/bootstrap-solar.min.css' : 'css/bootstrap/bootstrap-cerulean.min.css';
+
+            //setTimeout(function () { document.getElementsByTagName('body')[0].style.display = 'block'; }, 200);
+        }
+    </script>
 </body>
 
 </html>

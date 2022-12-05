@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject IJSRuntime JS
 
 <div class="page">
     <div class="navbar-dark bg-black ">
@@ -15,3 +16,14 @@
         </article>
     </main>
 </div>
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        await SetThemeAsync(true);
+    }
+    private async Task SetThemeAsync(bool isdark)
+    {
+        //themeIconClass = GetCurrentThemeIcon(IsThemeDark);
+        await JS.InvokeVoidAsync("SetDarkModeTheme", isdark);
+    }
+}
